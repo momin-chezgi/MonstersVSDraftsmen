@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/MonstersAndDraftsmen.dir/main.cpp.o CMakeFiles/MonstersAndDraftsmen.dir/classes.cpp.o CMakeFiles/MonstersAndDraftsmen.dir/interpreter.cpp.o CMakeFiles/MonstersAndDraftsmen.dir/mazeGen.cpp.o CMakeFiles/MonstersAndDraftsmen.dir/moves.cpp.o CMakeFiles/MonstersAndDraftsmen.dir/saveLoad.cpp.o -o MonstersAndDraftsmen 
