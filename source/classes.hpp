@@ -5,10 +5,8 @@
 struct Node
 {
 
-    int x {};
-    int y {};
-    int xp {};
-    int yp {};
+    int x {}; int y {};
+    int xp {}; int yp {};
 
     void find(vec2d(cell)& grid);
     bool unite(Node* n1, Node* n2, vec2d(cell)& grid);
@@ -18,8 +16,7 @@ struct Node
 struct draftsman
 {
     int id {-1};
-    int x {-1};
-    int y {-1};
+    int x {-1}; int y {-1};
     int temp_token {};
     int token_limit {};
     bool winned {false};
@@ -37,8 +34,7 @@ struct status
     vector<intpair> temp1;
     vector<intpair> temp2;
     vector<intpair> chancecubes;
-    int n {3};
-    int m {3};
+    int n {3}; int m {3};
 };
 
 extern vector<draftsman> dr;

@@ -1,5 +1,4 @@
-#ifndef MAZEGEN_HPP
-#define MAZEGEN_HPP
+#pragma once
 
 
 #include "../includer.hpp"
@@ -27,5 +26,3 @@ int mazegenerator(vec2d(char)& shown_grid,
 // with all cells initialized to ' ' before calling this function.
 // The function returns 0 after generating the maze.
 
-
-#endif //MAZEGEN_HPP

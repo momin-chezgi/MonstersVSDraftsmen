@@ -1,5 +1,4 @@
-#ifndef INNERFUNCTIONS_HPP
-#define INNERFUNCTIONS_HPP
+#pragma once
 
 #include "../includer.hpp"
 #include "../Interface/Interface.hpp"
@@ -26,4 +25,3 @@ inline void remove_dots(vec2d(char)& shown_grid);
 
 
 
-#endif //INNERFUNCTIONS_HPP

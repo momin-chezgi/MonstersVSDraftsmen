@@ -1,6 +1,7 @@
-#include "MazeGenerator/mazeGen.hpp"
+#include "MazeGenerator/mazeGenerator.hpp"
 #include "Moves/moves.hpp"
-#include "FileManagement/FileManagement.hpp"
+#include "FileManager/FileManager.hpp"
+
 
 int n,m, k;
 int drnum, mnnum, wlnum;
@@ -9,6 +10,48 @@ bool is_saved_game;
 intpair light_source_pos;
 vector<intpair> mnpos; 
 vector<draftsman> dr;
+
+
+vec2d(char) restore_the_game(status saved_status);
+vec2d(char) prepare_the_game(status& saved_status);
+int store_the_status(vec2d(char)& grid, int round, int d,
+                     vector<intpair>temp1, vector<intpair>temp2);
+int play_the_game(vector<int>& winners, vector<int>& losers,
+                  vec2d(char)& grid, int lastplayer);
+
+
+
+int main(){
+
+    status saved_status = importer();
+
+    vector<int> winners, losers;
+
+    init_k();
+    
+    vec2d(char)grid = prepare_the_game(saved_status);
+    
+    int d;
+    is_saved_game ? d = saved_status.lastplayer : d = 0;
+
+    int last_game_id = play_the_game(winners, losers, grid, d);
+
+    print_the_status(grid);
+
+    if(last_game_id > -1)cout << "The game saved by the id " << last_game_id << endl;
+    else print_the_ranking(winners, losers);
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
 
 vec2d(char) restore_the_game(status saved_status){
     n = saved_status.n;
@@ -201,27 +244,4 @@ inline void init_k(){
     // k is the first limit of temperoray wall
     // k = max( min(n,m), 1)
     n>3 && m>3?(n>m?k=m/3:k=n/3):k=1;
-}
-
-int main(){
-
-    status saved_status = importer();
-
-    vector<int> winners, losers;
-
-    init_k();
-    
-    vec2d(char)grid = prepare_the_game(saved_status);
-    
-    int d;
-    is_saved_game ? d = saved_status.lastplayer : d = 0;
-
-    int last_game_id = play_the_game(winners, losers, grid, d);
-
-    print_the_status(grid);
-
-    if(last_game_id > -1)cout << "The game saved by the id " << last_game_id << endl;
-    else print_the_ranking(winners, losers);
-
-    return 0;
 }

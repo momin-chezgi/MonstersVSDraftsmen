@@ -1,10 +1,8 @@
-#ifndef INNERFUNCTIONS_HPP
-#define INNERFUNCTIONS_HPP
+#pragma once
 
 #include "../includer.hpp"
-#include "../FileManagement/FileManagement.hpp"
+#include "../FileManager/FileManager.hpp"
 
 static int coor2id4monster(int x, int y, vector<intpair>& mnpos);
 static void clear_the_screen();
 
-#endif // INNERFUNCTIONS_HPP

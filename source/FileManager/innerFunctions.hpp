@@ -1,5 +1,4 @@
-#ifndef INNERFUNCTIONS_HPP
-#define INNERFUNCTIONS_HPP
+#pragma once
 
 #include "../classes.hpp"
 
@@ -11,4 +10,3 @@ inline void skip_games(FILE* fptr, int index);
 int number_of_games();
 int update_number_of_games();
 
-#endif //INNERFUNCTIONS_HPP

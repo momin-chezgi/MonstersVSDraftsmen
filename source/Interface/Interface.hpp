@@ -1,5 +1,4 @@
-#ifndef INTERPRETER_HPP
-#define INTERPRETER_HPP
+#pragma once
 
 #include "../classes.hpp"
 
@@ -14,4 +13,3 @@ void print_the_status(vec2d(char)& shown_grid);
 
 void print_the_ranking(vector<int>& winners, vector<int>& losers);
 
-#endif // iNTERPRETER_HPP
