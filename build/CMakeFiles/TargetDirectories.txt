@@ -1,0 +1,3 @@
+/home/amin-work/Projects/MonstersVSDraftsmen/build/CMakeFiles/MonstersAndDraftsmen.dir
+/home/amin-work/Projects/MonstersVSDraftsmen/build/CMakeFiles/edit_cache.dir
+/home/amin-work/Projects/MonstersVSDraftsmen/build/CMakeFiles/rebuild_cache.dir
