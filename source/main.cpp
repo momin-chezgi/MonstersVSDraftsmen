@@ -18,12 +18,21 @@ int store_the_status(vec2d(char)& grid, int round, int d,
                      vector<intpair>temp1, vector<intpair>temp2);
 int play_the_game(vector<int>& winners, vector<int>& losers,
                   vec2d(char)& grid, int lastplayer);
-
+inline void init_k();
+inline bool valid_loaded_status(const status& saved_status);
 
 
 int main(){
 
     status saved_status = importer();
+    if(is_saved_game && !valid_loaded_status(saved_status)){
+        cerr << "Error: Loaded game state is invalid." << endl;
+        return -1;
+    }
+    if(!is_saved_game && (n <= 2 || m <= 2)){
+        cerr << "Error: Invalid new game dimensions." << endl;
+        return -1;
+    }
 
     vector<int> winners, losers;
 
@@ -38,7 +47,7 @@ int main(){
 
     print_the_status(grid);
 
-    if(last_game_id > -1)cout << "The game saved by the id " << last_game_id << endl;
+    if(last_game_id > -1)cout << "The game saved by the id " << last_game_id+1 << endl;
     else print_the_ranking(winners, losers);
 
     return 0;
@@ -244,4 +253,12 @@ inline void init_k(){
     // k is the first limit of temperoray wall
     // k = max( min(n,m), 1)
     n>3 && m>3?(n>m?k=m/3:k=n/3):k=1;
+}
+
+inline bool valid_loaded_status(const status& saved_status){
+    if(saved_status.round < 0) return false;
+    if(saved_status.n <= 2 || saved_status.m <= 2) return false;
+    if(saved_status.drs.empty()) return false;
+    if(saved_status.lighpos.empty()) return false;
+    return true;
 }

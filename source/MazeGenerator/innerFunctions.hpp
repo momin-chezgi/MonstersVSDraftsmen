@@ -21,7 +21,7 @@ int fix_the_wrong_walls(int i1, int j1, int direction);
 intpair where_is_the_neighbor(int i, int j, int direction);
 //pair<intpair, intpair> shown2real_coord(int a, int b, char cell_type);
 bool are_there_no_enemy_nearby(vec2d(char) & shown_grid, int i, int j, char cell_type);
-inline void remove_dots(vec2d(char)& shown_grid);
+void remove_dots(vec2d(char)& shown_grid);
 
 
 

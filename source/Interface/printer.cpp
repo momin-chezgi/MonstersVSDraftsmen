@@ -1,6 +1,7 @@
 #include "innerFunctions.hpp"
 
-void print_the_status(vec2d(char)& shown_grid){
+void print_the_status(vec2d(char)& shown_grid) 
+{
     clear_the_screen();
     //print the index of rows and columns
     cout << "   ";
@@ -21,7 +22,8 @@ void print_the_status(vec2d(char)& shown_grid){
     }
 }
 
-void print_the_ranking(vector<int>& winners, vector<int>& losers){
+void print_the_ranking(vector<int>& winners, vector<int>& losers)
+{
     cout << "----------------------------------------" << endl;
     cout << "Ranking:" << endl;
     int w=0;

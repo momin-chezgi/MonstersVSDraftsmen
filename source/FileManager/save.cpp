@@ -10,7 +10,9 @@ int save_the_game(status& game){    //returns the index of the last-appended gam
 
     int gamenum = update_number_of_games();
 
-    FILE* fptr = fopen("../data/data.txt", "a");
+    if(gamenum < 0) return -1;
+
+    FILE* fptr = open_data_file("data.txt", "a");
     if(fptr==NULL)return -1;
 
     // 1. The number of round
@@ -22,7 +24,7 @@ int save_the_game(status& game){    //returns the index of the last-appended gam
     // 3. The numbers of the draftsmen and their infos: 
     // <id,x,y,temp_token,token_limit,winned,defeated>
     fprintf(fptr, "%ld ", game.drs.size());
-    for(int i=0; i<dr.size(); i++){
+    for(int i=0; i<game.drs.size(); i++){
         fprintf(fptr, "<%d,%d,%d,%d,%d,%d,%d> ",
             game.drs[i].id, game.drs[i].x, game.drs[i].y, game.drs[i].temp_token,
             game.drs[i].token_limit, game.drs[i].winned, game.drs[i].defeated);
@@ -30,8 +32,8 @@ int save_the_game(status& game){    //returns the index of the last-appended gam
     fprintf(fptr, "\n");
 
     // 4. The numbers of the monsters and their coordinates: <x,y>
-    fprintf(fptr, "%d ", mnnum);
-    for(int i=0; i<mnpos.size(); i++){
+    fprintf(fptr, "%ld ", game.mns.size());
+    for(int i=0; i<game.mns.size(); i++){
         fprintf(fptr, "<%d,%d> ",game.mns[i].first,game.mns[i].second);
     }
     fprintf(fptr, "\n");
@@ -40,7 +42,7 @@ int save_the_game(status& game){    //returns the index of the last-appended gam
     fprintf(fptr, "1 <%d,%d>\n", game.lighpos[0].first, game.lighpos[0].second);
 
     // 6. The numbers of walls and their coordinates: <x,y>
-    fprintf(fptr, "%d ", wlnum);
+    fprintf(fptr, "%ld ", game.walls.size());
     for(int i=0; i<game.walls.size(); i++) fprintf(fptr, "<%d,%d> ",game.walls[i].first, game.walls[i].second);
     fprintf(fptr, "\n");
 
